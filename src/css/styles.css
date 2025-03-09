@@ -5,154 +5,12 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px;
-  background-color:rgba(0, 0, 0, 0.86);
-}
 
-nav ul li {
-font-size: 21px;
-font-weight: bold;
-}
-
-#image img {
-  height: 190px;
-  margin-left: 50px;
-  margin-top: 30px;
-}
-
-nav {
-  display: flex;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 150px;
-}
-
-.up{
-  justify-content: space-between;
-  display: flex;
-  gap: 130px;
-}
-
-#menu{
-  padding: 15px;
-  margin-top: 80px;
-  margin-bottom: 85px;
-}
-
-#menu li{
-  padding: 15px;
-  background-color: black;
-  border-radius: 20px;  
-}
-
-#menu a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-#menu a:hover {
-  text-decoration: underline;
-}
-
-.hamburger-icon {
-  display: none;
-}
-
-#toggle{
-  display: none;
-}
-
-@media (max-width: 1024px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    padding: 10px;
-    margin-top: 200px;
-  }
-
-  nav a {
-    font-size: 14px;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-  }
-
-  #toggle:checked ~ nav {
-    display: flex;
-  }
-
-  .hamburger-icon {
-    display: block;
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    font-size: 24px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-
-  nav ul{
-    gap: 160px;
-    margin-left: 50px;
-    transition: gap 0.3s ease;
-  }
-
-  nav div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #menu li{
-    padding: 5px;
-  }
-
-  #image{
-    margin-left: 280px;
-  }
-  
- }
- 
- @media (max-width: 800px) {
-  nav ul {
-    gap: 40px;
-    padding: 10px;
-    margin-left: 0px;
-    transition: gap 0.3s ease;
-  }
-
-  nav ul li {
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  header img {
-    height: 40px; 
-  }
-
-  #image{
-    margin-left:60px ;
-  }
-}
-
- 
 /*Body*/
 
 .top-img {
   display: grid;
-  grid-template-columns:repeat(3,1fr) ;
+  grid-template-columns: repeat(3,1fr);
   gap: 0;
 }
 
@@ -165,39 +23,60 @@ nav ul {
   aspect-ratio: 3 / 4;
 }
 
-.text {
+/* New midtext container replaces the old text and midtext classes */
+.midtext-container {
   display: grid;
-  grid-template-columns:repeat(3,1fr) ;
-  gap: 120px;
-  background-color:rgba(0, 0, 0, 0.86);
-  color: white;
-  font-size: 12px;
-  text-align: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
   padding: 20px;
+  background-color: rgba(0, 0, 0, 0.86);
+  color: white;
 }
 
-.midtext{
-  display: grid;
-  grid-template-columns:repeat(3,1fr) ;
+.midtext-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
-.midtext h2{
-  font-size: 18px;
-  padding: 50px;
+.midtext-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.midtext-content {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive styles for midtext */
+@media (max-width: 900px) {
+  .midtext-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .midtext-item {
+    margin-bottom: 20px;
+  }
 }
 
 .doubletext{
   display: grid;
- margin: 50px;
+  margin: 50px;
   font-size: 12px;
 }
 
+.doubletext h2 {
+  line-height: 1.6;
+  font-size: 16px;
+}
+
 .mid-img{
-  display: grid;
-  width: 100vw; 
-  height: 150px;
-  place-items: center;
-  display: block ;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 .mid-img img{
@@ -212,9 +91,7 @@ nav ul {
   grid-template-columns: 1fr 1.5fr;
   align-items: start;
   gap: 100px;
-  padding-right: 80px;
-  padding-left: 100px;
-  padding-bottom: 40px;
+  padding: 0 80px 40px 100px;
 }
 
 .firstimg img{
@@ -238,31 +115,19 @@ nav ul {
 }
 
 .Bottom-text{
-background-color: #D9D9D9;
-border-radius: 20px;
-padding:36px;
-margin-top: 40px;
-font-size: 21px;
+  background-color: #D9D9D9;
+  border-radius: 20px;
+  padding: 36px;
+  margin-top: 40px;
+  font-size: 21px;
 }
 
 
-
+/* Make exhibition images appear above text on tablet/mobile */
 @media (max-width: 900px) {
+  
   .top-img {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .midtext h2{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    font-size: 13px;
-    padding: 15px;
-    margin-left: 15px;
-  }
-
-  .text{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    font-size: 6px;
-    margin-left: 0px;
   }
 
   .top-img img {
@@ -270,10 +135,12 @@ font-size: 21px;
     height: auto; 
   }
 
-  .bottom-img{
+  .bottom-img {
     grid-template-columns: 1fr;
-    gap:35px;
+    gap: 35px;
+    padding: 20px;
   }
+  
   .outline {
     padding: 15px;
     transform: scale(0.9); 
@@ -291,40 +158,44 @@ font-size: 21px;
     margin: 10px 0;
   }
 
-  .photext {
-    grid-template-columns: 1fr; 
-    align-items: center; 
-  }
-
-  .photo {
-    max-height: 150px;
-  }
-
   .mainform {
     grid-template-columns: 1fr;
     padding: 30px;
     max-width: 350px;
-}
+  }
 
-.send button, 
-.form{
-width: 180px;
-}
+  .send button, 
+  .form {
+    width: 180px;
+  }
 
-.mainform h2 {
+  .mainform h2 {
     font-size: 16px;
-}
+  }
 
-.mesaj textarea {
+  .mesaj textarea {
     width: 100%;
-}
+  }
+  
+  .contactmid,
+  .contactop {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .bottomcontact {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }
 
+/* More specific styles for small mobile devices */
 @media (max-width: 480px) {
   .outline {
     padding: 10px;
     max-width: 100%;
     transform: scale(0.8); 
+    margin: 50px auto;
   }
 
   .enter h2 {
@@ -335,29 +206,41 @@ width: 180px;
   .donate button {
     height: 45px;
     font-size: 14px;
+    width: 100%;
   }
 
   .donatend h2 {
     font-size: 14px;
     padding: 10px;
   }
+  
   .price {
     flex-direction: column;
   }
+  
   .mainform {
     padding: 20px;
     max-width: 280px;
   }
 
-.mainform h2 {
+  .mainform h2 {
     font-size: 14px;
-}
+  }
 
-.mesaj textarea {
+  .mesaj textarea {
     width: 100%;
+  }
+  
+  .terms,
+  .privacytext {
+    margin: 20px;
+  }
+  
+  .terms h2,
+  .privacytext h2 {
+    font-size: 16px;
+  }
 }
-}
-
 
 /*Footer*/
 footer {
@@ -485,42 +368,33 @@ footer {
 /*Donation*/
 
 .out {
-  display: grid;
-  justify-content: center; 
-  height: 100%;
+  display: flex;
+  justify-content: center;
   width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .outline {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 500px;
-  height: 100%;
-  max-height: 420px;
   background-color: #ffffff;
   border: 2px solid black;
-  margin: 110px;
-  margin-top: 80px;
-  margin-bottom: 250px;
-  place-items: center;
+  margin: 60px 0;
   border-radius: 5px;
-  padding: 0px;
-  padding-left: 30px;
-  padding-right: 30px;
-  gap: 0px;
+  padding: 30px;
   box-sizing: border-box;
-  border: 2px solid black;
   box-shadow: inset 0 0 50px rgba(128, 128, 128, 0.5);
 }
 
 .duration {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0;
-  width: 405px;
-  height: 0;
-  margin: 0;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .duration label {
@@ -556,8 +430,7 @@ display: none;
 }
 
 .enter{
-  height: 25px;
-  margin: 0;
+  margin-bottom: 20px;
 }
 
 .enter h2 {
@@ -566,29 +439,26 @@ display: none;
   background-color: #D9D9D9;
   border: 2px solid;
   border-color: black;
-  padding: 30px;
-  padding-right: 80px;
-  padding-left: 80px;
-
+  padding: 15px;
 }
 
 .innerline {
-  display: grid;
-  gap: 10px;
-  border: 2px solid;
-  border-color: black;
-  padding: 10px;
-  padding-right: 30px;
-  padding-left: 30px;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .price {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #ffffff;
-  padding: 3px;
+  padding: 10px 0;
+  width: 100%;
 }
 
 .price span {
@@ -597,13 +467,14 @@ display: none;
 
 .price input {
   text-align: center;
-  padding: 5px;
-  width: 100%;
+  padding: 10px;
+  flex-grow: 1;
   border: none;
+  margin: 0 10px;
 }
 
 .donate button {
-  width: 340px;
+  width: 100%;
   height: 50px;
   border-radius: 5px;
   background-color: #1599B1;
@@ -674,59 +545,71 @@ display: none;
 
 /*Exbitionspage*/
 
+.main-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  gap: 3rem;
+  padding: 20px;
+}
+
 .main{
-  padding: 70px;
-  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  max-width: 1024px;
 }
 
-.topic{
-  margin-bottom: 20px;
-}
-
-.topic h2{
-  margin: 0;
-  font-size: bold;
-  text-align: left;
-}
 
 .photext{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  height: 100%;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 30px;
-  padding-left: 0;
-  box-sizing: border-box;
-  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.photext h2{
-  font-size: 21px;
-  font-weight: normal;
+
+.photo {
+  width: 40%;
+  min-width: 270px;
+  max-height: 400px;
+  overflow: hidden;
 }
 
 .photo img{
   max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
 }
 
-.photo {
-  flex: 1;
-  max-width: 100%;
-  max-height: 250px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .tekst{
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media (min-width: 1024px){
+  .photext{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .photo {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+  }
+  
+  .photo img{
+    max-width: 100%;
+  }
 }
 
 /*Contact page*/
@@ -762,7 +645,6 @@ display: none;
 .getintouch{
   text-align: center;
   margin-top: 75px;
-
 }
 
 .getintouch h1{
@@ -772,58 +654,177 @@ display: none;
 .mainform{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  place-items: center;
-  gap: 14px;
+  place-items: start;
+  gap: 30px;
   background-color: #F2D091;
   width: 100%;
   height: auto;
-  max-width: 550px;
-  padding:60px;
+  max-width: 650px;
+  padding: 40px;
   border-radius: 20px;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
-.send button{
-width: 100%;
-max-width: 190px;  
-border: none;
-background-color: white;
-padding: 9px;
+.form-section {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
 }
 
 .form input{
   width: 100%;
-  max-width: 160px;
-  border:none;
+  border: none;
   background-color: white;
   padding: 9px;
 }
 
+.send button{
+  width: 100%;
+  border: none;
+  background-color: white;
+  padding: 9px;
+  cursor: pointer;
+}
+
+.send button:hover {
+  background-color: #f5f5f5;
+}
+
 .mainform h2{
   font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.mesaj {
+  width: 100%;
+}
+
+.mesaj textarea {
+  width: 100%;
+  height: 250px;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  resize: vertical;
 }
 
 .location{
-margin-left:55px;}
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.location h1 {
+  font-size: 21px;
+}
 
 .bottomcontact{
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-place-items: center;
-align-items: center;
-margin-bottom: 75px;
-gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  align-items: start;
+  margin-bottom: 75px;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.contact-item {
+  width: 100%;
+}
+
+.museumtext {
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .museumpicture img{
   width: 100%;
-  max-width:380px;
+  max-width: 380px;
   height: auto;
+  border-radius: 8px;
 }
 
 .teacherpic img{ 
   width: 100%;
-  max-width:220px;
-  height: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Responsive styles for contact page */
+@media (max-width: 900px) {
+  .contactmid,
+  .contactop {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  
+  .mainform {
+    grid-template-columns: 1fr;
+    padding: 30px;
+    max-width: 500px;
+    gap: 25px;
+  }
+  
+  .mesaj textarea {
+    height: 200px;
+  }
+
+  .bottomcontact {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .museumpicture img,
+  .teacherpic img {
+    max-width: 100%;
+  }
+  
+  .museumtext {
+    order: 2;
+    margin: 0 auto;
+    max-width: 450px;
+  }
+  
+  .museumpic {
+    order: 1;
+  }
+  
+  .teacherpict {
+    order: 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactmid,
+  .contactop {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .mainform {
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  .form input,
+  .send button {
+    padding: 8px;
+  }
+  
+  .mesaj textarea {
+    height: 180px;
+  }
+  
+  .bottomcontact {
+    gap: 30px;
+  }
 }
 
