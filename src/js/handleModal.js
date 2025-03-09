@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', function () {
   // Get the modal
   const modal = document.getElementById('mobile-menu-modal');
@@ -31,5 +32,37 @@ document.addEventListener('DOMContentLoaded', function () {
     link.addEventListener('click', function () {
       modal.style.display = 'none';
     });
+=======
+const hamburgerButton = document.querySelector('#hamburger-button');
+const mobileMenuModal = document.querySelector('#mobile-menu-modal');
+const closeModalButton = document.querySelector('.close-modal');
+const mobileMenuLinks = document.querySelectorAll('.mobile-nav a');
+
+// Open modal when hamburger button is clicked
+hamburgerButton.addEventListener('click', () => {
+  mobileMenuModal.style.display = 'block';
+  document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+});
+
+// Close modal when X is clicked
+closeModalButton.addEventListener('click', () => {
+  mobileMenuModal.style.display = 'none';
+  document.body.style.overflow = 'auto'; // Restore scrolling
+});
+
+// Close modal when clicking outside of it
+window.addEventListener('click', (event) => {
+  if (event.target === mobileMenuModal) {
+    mobileMenuModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+});
+
+// Close modal when a link is clicked
+mobileMenuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenuModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+>>>>>>> 27d55ea0ee1db5661f801b0f11ebda3f271b1100
   });
 });
